@@ -18,3 +18,17 @@ resource "aws_ssm_parameter" "frontend_sg_id" {
     value = module.frontend.sg_id
   
 }
+
+resource "aws_ssm_parameter" "bastion_sg_id" {
+    name = "/${var.project_name}/${var.environment}/frontend_sg_id"
+    type = "String" #CAP S is AWS notation
+    value = module.bastion.sg_id
+  
+}
+
+resource "aws_ssm_parameter" "ansible_sg_id" {
+    name = "/${var.project_name}/${var.environment}/frontend_sg_id"
+    type = "String" #CAP S is AWS notation
+    value = module.ansible.sg_id
+  
+}
